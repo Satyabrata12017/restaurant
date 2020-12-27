@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>OnlineRestaurantPortal</title>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
+</head>
+
+<body style="background-color: lightblue;">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">RestaurantPortal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/addcustomer">Add Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/editcustomer">Edit Customer</a>
+                </li>
+
+
+                <li class="nav-item active">
+                    <a class="nav-link " href="/viewcustomer">View Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/deletecustomer">Delete Customer</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+
+                <a href="/logout" class="btn btn-danger my-2 my-sm-0 ml-3" type="submit">Logout</a>
+            </form>
+        </div>
+    </nav>
+
+
+
+    <div class="container my-4 text-center">
+        <div class="row mb-4">
+            <form class="form-inline" method="POST" action="/viewcustomer">
+                <div class="form-group">
+
+                    <input type="text" id="deletecustomer" name="name" placeholder="Enter Name"
+                        class="form-control mx-sm-3">
+                    <input type="text" id="deletecustomer" name="email" placeholder="Enter Email"
+                        class="form-control mx-sm-3">
+                    <button type="submit" class="btn btn-success">Search Customer</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        {{#if message}}
+        <h4 class="alert alert-danger">{{message}}</h4>
+        {{/if}}
+    </div>
+    <div class="container text-center">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+
+                    <th scope="col">Name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">Phoneno</th>
+
+                    <th scope="col">Address</th>
+
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each records}}
+                <tr>
+
+                    <td>{{this.name}} </td>
+                    <td>{{this.email}} </td>
+                    <td>{{this.phoneno}}</td>
+
+                    <td>{{this.address}}</td>
+                    <td>
+                        <a class="btn btn-success" href="viewcustomer/{{this.id}}">View </a>
+                        <a class="btn btn-danger" href="editcustomer/{{this.id}}">Edit</a>
+                        <a class="btn btn-primary" onclick="myFun()" href="deletecustomer/{{this.id}}">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+
+
+
+
+
+            </tbody>
+        </table>
+
+
+
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function myFun() {
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                button: "Aww yiss!",
+            });
+        }
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>OnlineRestaurantPortal</title>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
+</head>
+
+<body style="background-color: lightblue;">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">RestaurantPortal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/addcustomer">Add Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/editcustomer">Edit Customer</a>
+                </li>
+
+
+                <li class="nav-item active">
+                    <a class="nav-link " href="/viewcustomer">View Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/deletecustomer">Delete Customer</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+
+                <a href="/logout" class="btn btn-danger my-2 my-sm-0 ml-3" type="submit">Logout</a>
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="container my-4">
+        {{#if message}}
+        <h4 class="alert alert-danger">{{message}}</h4>
+        {{/if}}
+    </div>
+    <div class="container ">
+        <label><span style="color: blue;font-size:20px;">Customer Name :</span>{{name}}</label><br>
+        <label><span style="color:  blue; font-size:20px;">Customer Email :</span>{{email}}</label><br>
+        <label><span style="color:  blue; font-size:20px;">Customer Phone No :</span>{{phoneno}}</label><br>
+        <label><span style="color:  blue; font-size:20px;">Total Guests :</span>{{guests}}</label><br>
+        <label><span style="color:  blue; font-size:20px;">Customer Address :</span>{{address}}</label><br>
+        <label><span style="color:  blue; font-size:20px;">Date  :</span>{{date}}</label><br>
+        <label><span style="color:  blue; font-size:20px;">Special Request :</span>{{specialmessage}}</label><br><br>
+        <a href="/viewcustomer" class="btn btn-success">Go Back</a>
+    </div>
+    
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function myFun() {
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                button: "Aww yiss!",
+            });
+        }
+    </script>
+
+</body>
+
+
+</html>
